@@ -52,7 +52,7 @@ var 1nome;
 var function;
 ```
 
-Hoisting:
+## Hoisting:
 
 As variáveis são modidas para cima do cógido, porém seus valores atribuídos não. Exemplo:
 
@@ -64,7 +64,7 @@ console.log(idade);
 // Saída é 18;
 ```
 
-Mudar valor atribuído:
+## Mudar valor atribuído:
 
 Podemos mudar os valores atribuídos tanto para let e para var mas para const não, pois seu próprio nome já diz, é uma constante.
 
@@ -90,7 +90,7 @@ let nomeDoCarro, numeroDeFilmes;
 const anoNascimento;
 ```
 
-Tipos de dados:
+## Tipos de dados:
 
 Todos são primitivos, exceto objetos, vejamos abaixo:
 
@@ -117,7 +117,7 @@ console.log(nome + sobrenome);
 // Saída é "MatheusMarinho";
 ```
 
-Template Strings:
+## Template Strings:
 
 Usa-se a crase para simplificar a forma de juntar váriaveis com texto, usando o `${}`;
 
@@ -157,7 +157,7 @@ console.log(typeof nome);
 // Saída: String;
 ```
 
-Números e operadores:
+## Números e operadores:
 
 - Soma = `+`;
 
@@ -203,7 +203,7 @@ incremento++;
 var numero = +'80" / 2;
 ```
 
-Boolean e Condicionais:
+## Boolean e Condicionais:
 
 Boolean são valores verdadeiros ou falsos, representados por `true` ou `false`;
 
@@ -293,7 +293,7 @@ if ("Gato" === "gato" || 5 > 2) {
 //Cão
 ```
 
-Funções
+## Funções
 
 Exercício 5:
 
