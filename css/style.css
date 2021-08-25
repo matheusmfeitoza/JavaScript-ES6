@@ -29,6 +29,9 @@ ul {
   --background-menu: #fb5;
   --subtitles-color: #e54;
 }
+.texto-maior{
+  font-size: 150%;
+}
 
 body {
   background-color: var(--cor-fundo-padrao);
@@ -51,7 +54,7 @@ body {
 }
 .menu li a {
   display: block;
-  padding: 10px;
+  padding: 16px 11px;
   margin-right: 10px;
   color: var(--text-color-default);
   font-family: monospace;

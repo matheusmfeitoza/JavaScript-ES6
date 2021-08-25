@@ -637,3 +637,108 @@ console.log(hrefMenu);
 hrefMenu.setAttribute("href", "https://github.com/matheusmfeitoza");
 hrefMenu.setAttribute("target", "_blank");
 ```
+## Dimensões e Distâncias
+
+Exercício 13:
+```js
+// Verifique a distância da primeira imagem
+// em relação ao topo da página
+
+const primeiraImagem = document.querySelector('img');
+let distancia = primeiraImagem.getBoundingClientRect();
+console.log(distancia.top);
+
+// Retorne a soma da largura de todas as imagens
+function somaImagens(){
+const imgs = document.querySelectorAll('img');
+let total = 0 
+imgs.forEach((item)=>{
+    total += item.getBoundingClientRect().width;
+    
+})
+console.log(total)
+}
+window.onload = function(){
+    somaImagens();
+}
+// Verifique se os links da página possuem
+// o mínimo recomendado para telas utilizadas
+// com o dedo. (48px/48px de acordo com o google)
+
+const getLinks = document.querySelectorAll('a');
+getLinks.forEach((item)=>{
+    if(item.offsetHeight >= 48 && item.offsetWidth >= 48){
+        console.log("De acordo com o padrão")
+    }else{
+        console.log("Fora do padrão",item)
+    }
+})
+
+// Se o browser for menor que 720px,
+// adicione a classe menu-mobile ao menu
+const deviceUser = window.matchMedia('(max-width:720px)');
+const getMenu = document.querySelector('.menu');
+if(deviceUser.matches){
+    getMenu.classList.add('menu-mobile');
+}else{
+    console.log('Desktop User')
+}
+```
+
+## Eventos
+
+Exercício 14:
+
+```js
+// Quando o usuário clicar nos links internos do site,
+// adicione a classe ativo ao item clicado e remova dos
+// demais itens caso eles possuam a mesma. Previna
+// o comportamento padrão desses links
+
+const getInternalLinks = document.querySelectorAll('a[href^="#"');
+
+
+function handleInternalLinks(event){
+    event.preventDefault();
+    this.classList.toggle("ativo")
+}
+getInternalLinks.forEach((item)=>{
+    item.addEventListener('click',handleInternalLinks);
+})
+
+// Selecione todos os elementos do site começando a partir do body,
+// ao clique mostre exatamente quais elementos estão sendo clicados
+
+const getElementosAll = document.querySelectorAll('body *');
+
+function exibeElementos(event){
+    event.preventDefault()
+    console.log(event.target)
+}
+getElementosAll.forEach((item)=>{
+    item.addEventListener('click',exibeElementos)
+})
+
+// Utilizando o código anterior, ao invés de mostrar no console,
+// remova o elemento que está sendo clicado, o método remove() remove um elemento
+function removeElementos(event){
+    event.preventDefault();
+    event.target.remove();
+}
+getElementosAll.forEach((elemento)=>{
+    elemento.addEventListener('click',removeElementos)
+})
+
+// Se o usuário clicar na tecla (t), aumente todo o texto do site. 
+
+
+function aumentarTexto(event){
+    if(event.key === 't'){
+        document.documentElement.classList.toggle('texto-maior')
+    }else{
+        console.log("else")
+    }
+}
+
+window.addEventListener('keypress',aumentarTexto)
+```
