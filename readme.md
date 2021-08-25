@@ -742,3 +742,29 @@ function aumentarTexto(event){
 
 window.addEventListener('keypress',aumentarTexto)
 ```
+
+## Traversing e Manipulação de elementos
+
+Exercício 15:
+
+```js
+// Duplique o menu e adicione ele em copy
+const getMenu = document.querySelector(".menu");
+const menuCopy = getMenu.cloneNode(true);
+const getCopyElement = document.querySelector('.copy')
+getCopyElement.parentElement.insertBefore(menuCopy,getCopyElement)
+
+// Selecione o primeiro DT da dl de Faq
+const getFaqElement = document.querySelector(".faq");
+const primeiroDt = faq.querySelector('dt')
+console.log(primeiroDt)
+
+// Selecione o DD referente ao primeiro DT
+console.log(primeiroDt.nextElementSibling)
+
+// Substitua o conteúdo html de .faq pelo de .animais
+
+const getFaq = document.querySelector('.faq');
+const getAnimals = document.querySelector('.animais')
+getFaq.innerHTML = getAnimals.innerHTML;
+```
