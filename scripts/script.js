@@ -67,7 +67,7 @@ function animacaoAoScrollar() {
     function scrollEventSections() {
       sections.forEach((item) => {
         const positionItemTop = item.getBoundingClientRect().top;
-        const isSectionVisible = positionItemTop - windowMetade < 0;
+        const isSectionVisible = (positionItemTop - windowMetade) < 0;
         if (isSectionVisible) {
           item.classList.add("ativo");
         }
