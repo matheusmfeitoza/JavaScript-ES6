@@ -830,6 +830,8 @@ li.removeClass('oval')
 
 ## Constructor
 
+Exercício 17:
+
 ```js
 // Crie uma função construtora de Pessoas
 // Deve conter nome, sobrenome e idade
@@ -876,3 +878,141 @@ li.click();
 li.hidden.constructor.name;
 //String
 ```
+
+## Native, Host e User
+
+Exercício 18:
+
+```js
+// Liste 5 objetos nativos:
+Object, String, Array, Function, Number;
+
+
+// Liste 5 objetos do browser:
+Window, History, Document, HTMLCollection, NodeList;
+
+// Liste 2 métodos, propriedades ou objetos presentes no chrome que não existe no firefox;
+Webkit;
+
+```
+
+## Strings
+
+Exercício 19:
+
+```js
+// Utilizando o foreach na array abaixo,
+// some os valores de Taxa e os valores de Recebimento
+
+const transacoes = [
+    {
+      descricao: 'Taxa do Pão',
+      valor: 'R$ 39',
+    },
+    {
+      descricao: 'Taxa do Mercado',
+      valor: 'R$ 129',
+    },
+    {
+      descricao: 'Recebimento de Cliente',
+      valor: 'R$ 99',
+    },
+    {
+      descricao: 'Taxa do Banco',
+      valor: 'R$ 129',
+    },
+    {
+      descricao: 'Recebimento de Cliente',
+      valor: 'R$ 49',
+    },
+  ];
+  let taxaTotal = 0;
+  transacoes.forEach((item)=>{
+      let numFinal = +item.valor.replace('R$','')
+      if(item.descricao.substr(0,3) === 'Tax'){
+            taxaTotal = taxaTotal + numFinal;
+        }
+    })
+    console.log("Valor da taxa final é: " + taxaTotal);
+
+    let recebimentoTotal = 0;
+    transacoes.forEach((item)=>{
+        let numfinal = +item.valor.replace("R$","");
+        if(item.descricao.substr(0,3) === "Rec"){
+            recebimentoTotal = recebimentoTotal + numfinal;
+        }
+    })
+    console.log("Valor do recebimento final é: "+ recebimentoTotal)
+
+  // Retorne uma array com a lista abaixo
+  const transportes = 'Carro;Avião;Trem;Ônibus;Bicicleta';
+  console.log(transportes.split(";"))
+
+  // Substitua todos os span's por a's
+  const html = `<ul>
+                  <li><span>Sobre</span></li>
+                  <li><span>Produtos</span></li>
+                  <li><span>Contato</span></li>
+                </ul>`;
+
+ let newHml = html.split('span')
+ console.log(newHml.join('a'))
+  
+  // Retorne o último caracter da frase
+  const frase = 'Melhor do ano!';
+  console.log(frase.charAt(frase.length -1))
+  
+//   // Retorne o total de taxas
+  const transacoes2 = ['Taxa do Banco', '   TAXA DO PÃO', '  taxa do mercado', 'depósito Bancário', 'TARIFA especial'];
+  let totalTxItens = 0;
+  transacoes2.forEach((item)=>{
+      let itemSemEspaco = item.trim();
+    //   console.log(itemSemEspaco);
+      let itemMinusculo = itemSemEspaco.toLowerCase()
+    //   console.log(itemMinusculo)
+    let totalItens = itemMinusculo.substr(0,3);
+    // console.log(totalItens);
+    if(totalItens === 'tax'){
+        totalTxItens++;
+    }
+    })
+    console.log(totalTxItens)
+```
+
+## Number e Math
+
+ Exercício 20:
+
+```js
+// Retorne um número aleatório
+// entre 1050 e 2000
+
+const aleatorio = Math.floor(Math.random() * (2000 - 1050 + 1) + 1050)
+console.log(aleatorio)
+
+
+// Retorne o maior número da lista abaixo
+const numeros = '4, 5, 20, 8, 9';
+const newNumeros = numeros.split(', ');
+console.log(Math.max(...newNumeros))
+
+
+// Crie uma função para limpar os preços
+// e retornar os números com centavos arredondados
+// depois retorne a soma total
+const listaPrecos = ['R$ 59,99', ' R$ 100,222',
+                     'R$ 230  ', 'r$  200'];
+
+function limpaPreco(){
+    let total = 0;
+    listaPrecos.forEach((item)=>{
+        let newPreco = +item.slice(3).trim().replace(',','.');
+        return total += newPreco
+    })
+    console.log(total)
+}
+limpaPreco()
+```
+
+### Array
+
