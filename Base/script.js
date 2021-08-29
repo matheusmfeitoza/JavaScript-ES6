@@ -1,50 +1,66 @@
-const comidas = ['Pizza', 'Frango', 'Carne', 'Macarrão'];
-// Remova o primeiro valor de comidas e coloque em uma variável
-const primeiroValor = comidas.shift();
-console.log(`Primeiro valor do array: ${primeiroValor}`);
-// Remova o último valor de comidas e coloque em uma variável
-const ultimoValor = comidas.pop();
-console.log(`Último valor do array: ${ultimoValor}`)
-// Adicione 'Arroz' ao final da array
-comidas.push('Arroz')
-console.log(comidas)
-// Adicione 'Peixe' e 'Batata' ao início da array
-comidas.unshift("Peixe","Batata")
-console.log(comidas)
+// Selecione cada curso e retorne uma array
+// com objetos contendo o título, descricao,
+// aulas e horas de cada curso
+const cursos = document.querySelectorAll('.curso');
+const cursosArray = Array.from(cursos);
+const retornoCompleto = cursosArray.map((item)=>{
+    const titulo = item.querySelector('h1').innerHTML;
+    const descricao = item.querySelector('p').innerHTML;
+    const aulas = item.querySelector('.aulas').innerHTML;
+    const horas = item.querySelector('.horas').innerHTML;
+    return {
+        titulo,
+        descricao,
+        aulas,
+        horas
+    }
+})
+console.log(retornoCompleto)
 
-const estudantes = ['Marcio', 'Brenda', 'Joana', 'Kleber', 'Julia'];
-// Arrume os estudantes em ordem alfabética
-estudantes.sort();
-console.log(estudantes)
-// Inverta a ordem dos estudantes
-estudantes.reverse();
-console.log(estudantes)
-// Verifique se Joana faz parte dos estudantes
-console.log(`Joana faz parte de estudantes? ${estudantes.includes('Joana') ? "Sim": "Não"}`)
-// Verifique se Juliana faz parte dos estudantes
-console.log(`Juliana faz parte de estudantes? ${estudantes.includes('Juliana')?'sim':'Não'}`)
+// Retorne uma lista com os
+// números maiores que 100
+const numeros = [3, 44, 333, 23, 122, 322, 33];
 
-let html = `<section>
-              <div>Sobre</div>
-              <div>Produtos</div>
-              <div>Contato</div>
-            </section>`
-// Substitua section por ul e div com li,
-// utilizando split e join
-let removeSection = html.split('section');
-console.log(removeSection)
-let insereUL = removeSection.join('ul')
-console.log(insereUL)
-let removeDiv = insereUL.split('div')
-console.log(removeDiv)
-let insereLi = removeDiv.join('li')
-console.log(insereLi)
-//
-//
-const carros = ['Ford', 'Fiat', 'VW', 'Honda'];
-// Remova o último carro, mas antes de remover
-// salve a array original em outra variável
-const arrayOriginal = carros.slice(0);
-carros.pop();
-console.log(arrayOriginal);
-console.log(carros);
+const numerosMaior = numeros.filter((item)=>{
+    return item > 100;
+})
+console.log(`Números maior que 100: ${numerosMaior}`)
+
+// Verifique se Baixo faz parte
+// da lista de instrumentos e retorne true
+const instrumentos = ['Guitarra', 'Baixo', 'Bateria', 'Teclado']
+
+const baixoNaLista = instrumentos.some((item)=>{
+    return item === 'Baixo';
+})
+console.log(baixoNaLista)
+
+// Retorne o valor total das compras
+const compras = [
+  {
+    item: 'Banana',
+    preco: 'R$ 4,99'
+  },
+  {
+    item: 'Ovo',
+    preco: 'R$ 2,99'
+  },
+  {
+    item: 'Carne',
+    preco: 'R$ 25,49'
+  },
+  {
+    item: 'Refrigerante',
+    preco: 'R$ 5,35'
+  },
+  {
+    item: 'Quejo',
+    preco: 'R$ 10,60'
+  }
+]
+
+const valorFinal = compras.reduce((acumulador,valor)=>{
+   const precoLimpo = +valor.preco.replace('R$ ','').replace(',','.');
+   return acumulador + precoLimpo; 
+},0)
+console.log(valorFinal)
