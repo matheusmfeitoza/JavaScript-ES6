@@ -1072,7 +1072,7 @@ console.log(carros);
 ```
 Exercício 22:
 
-```
+```js
 // Selecione cada curso e retorne uma array
 // com objetos contendo o título, descricao,
 // aulas e horas de cada curso
@@ -1139,4 +1139,88 @@ const valorFinal = compras.reduce((acumulador,valor)=>{
    return acumulador + precoLimpo; 
 },0)
 console.log(valorFinal)
+```
+
+## Funções
+
+```js
+// Retorne a soma total de caracteres dos
+// parágrafos acima utilizando reduce
+const p = document.querySelectorAll('p');
+const novoArray = Array.from(p);
+//Forma 1 transformando o nodelist em array
+// const resultado = novoArray.reduce((anterior,item)=>{
+//   return anterior + item.innerHTML.length
+// },0)
+// console.log(resultado)
+
+//Forma 2, usando CALL
+const totalParagrafos = Array.prototype.reduce.call( p,(acumulador,item)=>{
+  return acumulador + item.innerText.length
+},0)
+console.log(totalParagrafos)
+
+// Crie uma função que retorne novos elementos
+// html, com os seguintes parâmetros
+// tag, classe e conteudo.
+
+function criarElemento(tag,classe,conteudo){
+  const elemento = document.createElement(tag);
+  classe   ? elemento.classList.add(classe) : null;
+  conteudo ? elemento.innerHTML = conteudo : null;
+  return elemento
+}
+// Crie uma nova função utilizando a anterior como base
+// essa nova função deverá sempre criar h1 com a
+// classe titulo. Porém o parâmetro conteudo continuará dinâmico
+
+const h1Element = criarElemento.bind(null,'h1','titulo')
+
+console.log(h1Element('Teste de titulo'))
+```
+## Objetos
+
+```js
+// Crie uma função que verifique
+// corretamente o tipo de dado
+
+function verificarDadoCorreto(dado){
+  return Object.prototype.toString.call(dado)
+}
+console.log(verificarDadoCorreto('Bater'))
+
+// Crie um objeto quadrado com
+// a propriedade lados e torne
+// ela imutável
+
+const quadrado = {
+}
+Object.defineProperties(quadrado,{
+  lado : {
+    value : 4,
+  }
+})
+console.log(quadrado)
+
+// Previna qualquer mudança
+// no objeto abaixo
+const configuracao = {
+  width: 800,
+  height: 600,
+  background: '#333'
+}
+Object.freeze(configuracao)
+
+console.log(configuracao)
+configuracao.modoNoturno = 'Ativo';
+console.log(configuracao)
+delete configuracao.width
+console.log(configuracao)
+
+// Liste o nome de todas
+// as propriedades do
+// protótipo de String e Array
+
+console.log(Object.getOwnPropertyNames(String.prototype))
+console.log(Object.getOwnPropertyNames(Array.prototype))
 ```
