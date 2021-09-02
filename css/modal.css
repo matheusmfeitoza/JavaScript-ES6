@@ -10,6 +10,8 @@
     left: 0;
     z-index: 2000;
 }
+
+
 .modal-container.ativo{
     display: flex;
 }
@@ -35,6 +37,8 @@
     position: relative;
     min-width: 300px;
 }
+
+
 .modal-fechar{
     position: absolute;
     top: -30px;
@@ -88,4 +92,15 @@
 
 .modal button[type='submit']:hover{
     background-color: #FB5;
+}
+
+@media (max-width:460px){
+   
+    .modal{
+        max-width: 200px;
+        min-width: 200px;
+    }
+   .modal button[type='submit']{
+       width: 200px;
+   }
 }
