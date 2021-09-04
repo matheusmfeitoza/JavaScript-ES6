@@ -16,7 +16,7 @@ export default function animais() {
                     clearInterval(intervalo)
                 }
 
-            }, 25 * Math.random());
+            }, 45 * Math.random());
         });
     }
 
