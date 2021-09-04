@@ -1,42 +1,38 @@
-// Crie uma função que verifique
-// corretamente o tipo de dado
+// function mudaCor(){
+//   const getBody = document.body;
+//   getBody.classList.toggle('active')
+// }
 
-function verificarDadoCorreto(dado){
-  return Object.prototype.toString.call(dado)
-}
-console.log(verificarDadoCorreto('Bater'))
+// setInterval(mudaCor,2000)
+const iniciar = document.querySelector('.iniciar');
+const pausar = document.querySelector('.pausar');
+const contador = document.querySelector('.tempo')
 
-// Crie um objeto quadrado com
-// a propriedade lados e torne
-// ela imutável
+let incremento = 0;
+let aindaNaoSei;
 
-const quadrado = {
-}
-Object.defineProperties(quadrado,{
-  lado : {
-    value : 4,
-  }
+iniciar.addEventListener('click',() =>{
+  aindaNaoSei = setInterval(iniciarContador,200)
 })
-console.log(quadrado)
 
-// Previna qualquer mudança
-// no objeto abaixo
-const configuracao = {
-  width: 800,
-  height: 600,
-  background: '#333'
+pausar.addEventListener('click',pausarContador);
+
+pausar.addEventListener('dblclick',resetarCronometro);
+
+function iniciarContador(){
+  contador.innerText = incremento++;
+  iniciar.setAttribute('disabled','');
+  
 }
-Object.freeze(configuracao)
 
-console.log(configuracao)
-configuracao.modoNoturno = 'Ativo';
-console.log(configuracao)
-delete configuracao.width
-console.log(configuracao)
+function pausarContador(){
+  clearInterval(aindaNaoSei);
+  iniciar.removeAttribute('disabled')
 
-// Liste o nome de todas
-// as propriedades do
-// protótipo de String e Array
-
-console.log(Object.getOwnPropertyNames(String.prototype))
-console.log(Object.getOwnPropertyNames(Array.prototype))
+}
+function resetarCronometro(){
+  
+  contador.innerText = 0;
+  incremento = 0;
+  
+}
