@@ -6,6 +6,7 @@ import modalLogin from "./modulos/modal-login.js"
 import menuDropdown from './modulos/menu-dropdown.js';
 import menuMobile from './modulos/menu-mobile.js';
 import animais from './modulos/animais.js';
+import horarioFuncionamento from './modulos/horarioFuncionamento.js';
 
 
 tabDtListActive();
@@ -16,3 +17,4 @@ modalLogin();
 menuDropdown();
 menuMobile();
 animais();
+horarioFuncionamento();
