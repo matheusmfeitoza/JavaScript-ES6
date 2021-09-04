@@ -1,0 +1,22 @@
+.grid-animais{
+    grid-column: 2/4;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
+}
+.grid-animais h3{
+    font-family: "Playfair Display SC", serif;
+    font-size: 1.25rem;
+    margin: 10px;
+}
+.grid-animais span{
+    color: var(--subtitles-color);
+    font-weight: bold;
+    font-size: 1.1rem;
+}
+
+@media (max-width:700px){
+    .grid-animais{
+        grid-column: 1;
+    }
+}

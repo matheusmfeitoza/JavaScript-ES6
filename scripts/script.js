@@ -5,6 +5,7 @@ import animacaoAoScrollar from "./modulos/animacao-scroll.js";
 import modalLogin from "./modulos/modal-login.js"
 import menuDropdown from './modulos/menu-dropdown.js';
 import menuMobile from './modulos/menu-mobile.js';
+import animais from './modulos/animais.js';
 
 
 tabDtListActive();
@@ -14,3 +15,4 @@ animacaoAoScrollar();
 modalLogin();
 menuDropdown();
 menuMobile();
+animais();
