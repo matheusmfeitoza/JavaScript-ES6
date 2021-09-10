@@ -29,7 +29,7 @@ ul {
   --background-menu: #fb5;
   --subtitles-color: #e54;
 }
-.texto-maior{
+.texto-maior {
   font-size: 150%;
 }
 
@@ -37,9 +37,8 @@ body {
   background-color: var(--cor-fundo-padrao);
   color: var(--text-color-default);
   -webkit-font-smoothing: antaliased;
-
 }
-.grid-container{
+.grid-container {
   display: grid;
   grid-template-columns: 1fr 120px minmax(300px, 800px) 1fr;
 }
@@ -230,85 +229,80 @@ body {
   }
 }
 
-[data-tab-content="tabContent"] section{
+[data-tab-content="tabContent"] section {
   display: none;
 }
 
-.js [data-tab-content="tabContent"] section.ativo{
+.js [data-tab-content="tabContent"] section.ativo {
   display: block !important;
 }
-.js [data-tab-content="tabContent"] section.ativo.show-down{
+.js [data-tab-content="tabContent"] section.ativo.show-down {
   animation: show-down.5s forwards;
 }
-.js [data-tab-content="tabContent"] section.ativo.show-left{
- 
-  animation: show-left .5s forwards;
+.js [data-tab-content="tabContent"] section.ativo.show-left {
+  animation: show-left 0.5s forwards;
 }
 
 @keyframes show-down {
   from {
     opacity: 0;
-    transform: translate3d(0,-60px,0);
+    transform: translate3d(0, -60px, 0);
   }
-  to{
-    transform: translate3d(0,0,0);
+  to {
+    transform: translate3d(0, 0, 0);
   }
 }
 
 @keyframes show-left {
   from {
     opacity: 0;
-    transform: translate3d(-30px,0,0);
+    transform: translate3d(-30px, 0, 0);
   }
-  to{
-    transform: translate3d(0,0,0);
+  to {
+    transform: translate3d(0, 0, 0);
   }
 }
 
-.js [data-faq-list='faqList'] dd{
+.js [data-faq-list="faqList"] dd {
   display: none;
 }
 
-[data-faq-list='faqList'] dd.ativo{
+[data-faq-list="faqList"] dd.ativo {
   display: block;
-  animation: showDt .5s forwards;
+  animation: showDt 0.5s forwards;
 }
 
-[data-faq-list='faqList'] dt::after{
+[data-faq-list="faqList"] dt::after {
   content: "↓";
   margin-left: 10px;
 }
-[data-faq-list='faqList'] dt.ativo::after{
+[data-faq-list="faqList"] dt.ativo::after {
   content: "↑";
- 
 }
 
-@keyframes showDt{
-  from{
+@keyframes showDt {
+  from {
     opacity: 0;
     max-height: 0;
-    
   }
-  to{
+  to {
     opacity: 1;
     max-height: 200px;
-   
   }
 }
 
-.js [data-scroll="scroll"]{
+.js [data-scroll="scroll"] {
   opacity: 0;
-  transform: translate3d(30px,0,0);
-  transition: .3s ease-in;
+  transform: translate3d(30px, 0, 0);
+  transition: 0.3s ease-in;
 }
-.js [data-scroll="scroll"].ativo{
+.js [data-scroll="scroll"].ativo {
   opacity: 1;
-  transform: translate3d(0,0,0);
-  
+  transform: translate3d(0, 0, 0);
 }
 
-[data-semana]::after{
-  content:'';
+[data-semana]::after {
+  content: "";
   display: inline-block;
   width: 6px;
   height: 6px;
@@ -317,6 +311,12 @@ body {
   border-radius: 50%;
   margin-left: 5px;
 }
-[data-semana].aberto::after{
-  background-color: #20FD1C;
+[data-semana].aberto::after {
+  background-color: #20fd1c;
+}
+.btc-price {
+  background: #20fd1c;
+  padding: 0.2rem;
+  border: none;
+  font-weight: bold;
 }

@@ -2,19 +2,20 @@ import tabMenuActive from "./modulos/menu.js";
 import tabDtListActive from "./modulos/lista-dt.js";
 import initialScrollSuave from "./modulos/scroll-suave.js";
 import animacaoAoScrollar from "./modulos/animacao-scroll.js";
-import modalLogin from "./modulos/modal-login.js"
-import menuDropdown from './modulos/menu-dropdown.js';
-import menuMobile from './modulos/menu-mobile.js';
-import animais from './modulos/animais.js';
-import horarioFuncionamento from './modulos/horarioFuncionamento.js';
-
+import modalLogin from "./modulos/modal-login.js";
+import menuDropdown from "./modulos/menu-dropdown.js";
+import menuMobile from "./modulos/menu-mobile.js";
+import horarioFuncionamento from "./modulos/horarioFuncionamento.js";
+import fetchAnimais from "./modulos/fetchAnimais.js";
+import fetchBtc from "./modulos/fetchBtc.js";
 
 tabDtListActive();
-tabMenuActive(); 
+tabMenuActive();
 initialScrollSuave();
 animacaoAoScrollar();
 modalLogin();
 menuDropdown();
 menuMobile();
-animais();
 horarioFuncionamento();
+fetchAnimais();
+fetchBtc();
