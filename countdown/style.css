@@ -1,0 +1,43 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  background-image: url(sincerely-media-EuZuJrYJbmg-unsplash.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+h1 {
+  text-align: center;
+  font-size: 2.3rem;
+  color: #e51;
+  margin-top: 50px;
+  font-family: monospace;
+}
+.countdown {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  gap: 30px;
+  justify-content: center;
+  align-items: center;
+  margin-top: 120px;
+}
+span {
+  font-family: monospace;
+  font-size: 1.7rem;
+  font-weight: bold;
+  line-height: 1.2;
+  text-align: center;
+}
+.box {
+  border: 1px solid red;
+  padding: 20px;
+  border-radius: 4px;
+  text-align: center;
+}
+.desc {
+  font-size: 1.3rem;
+  font-family: monospace;
+}
