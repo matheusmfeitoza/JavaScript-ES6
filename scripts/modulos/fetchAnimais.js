@@ -1,6 +1,12 @@
 import animais from "./animais.js";
 
 export default function fetchAnimais() {
+  function createAnimal(animal) {
+    const createDiv = document.createElement("div");
+    createDiv.classList.add("animais");
+    createDiv.innerHTML = `<h3>${animal.specie}</h3><span data-animais>${animal.quantidade}</span>`;
+    return createDiv;
+  }
   async function getUrl(url) {
     const respostaUrl = await fetch(url);
     const dadosUrl = await respostaUrl.json();
@@ -11,11 +17,6 @@ export default function fetchAnimais() {
     });
     animais();
   }
-  function createAnimal(animal) {
-    const createDiv = document.createElement("div");
-    createDiv.classList.add("animais");
-    createDiv.innerHTML = `<h3>${animal.specie}</h3><span data-animais>${animal.quantidade}</span>`;
-    return createDiv;
-  }
+
   getUrl("./../../assets/api/animais.json");
 }
