@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      form {
+        background-color: #333;
+        width: 300px;
+        height: 200px;
+        padding: 10px;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 300px;
+      }
+      label {
+        display: block;
+        margin: 5px;
+        color: white;
+      }
+      input {
+        display: block;
+        margin: 6px;
+        padding: 6px;
+        border: none;
+        border-radius: 5px;
+      }
+      input::placeholder {
+        color: rgba(0, 0, 0, 0.3);
+        font-size: 1.1rem;
+      }
+      .correto {
+        border: 3px solid green;
+      }
+      .errado {
+        border: 3px solid red;
+      }
+      .invalid-cpf {
+        display: none;
+        font-family: monospace;
+        color: red;
+        margin-left: 10px;
+      }
+      .invalid-cpf.ativo {
+        display: block;
+      }
+    </style>
+  </head>
+  <body>
+    <form action="">
+      <label for="cpf">CPF</label>
+      <input type="text" id="cpf" name="cpf" placeholder="111.111.111-11" />
+      <span class="invalid-cpf">CPF INVALIDO</span>
+      <label for="email">Email</label>
+      <input type="text" id="email" name="email" />
+    </form>
+    <script type="module" src="index.js"></script>
+  </body>
+</html>
