@@ -1,6 +1,6 @@
 import tabMenuActive from "./modulos/menu.js";
 import tabDtListActive from "./modulos/lista-dt.js";
-import initialScrollSuave from "./modulos/scroll-suave.js";
+import ScrollSuave from "./modulos/scroll-suave.js";
 import animacaoAoScrollar from "./modulos/animacao-scroll.js";
 import modalLogin from "./modulos/modal-login.js";
 import menuDropdown from "./modulos/menu-dropdown.js";
@@ -9,9 +9,12 @@ import horarioFuncionamento from "./modulos/horarioFuncionamento.js";
 import fetchAnimais from "./modulos/fetchAnimais.js";
 import fetchBtc from "./modulos/fetchBtc.js";
 
+const scrollSuave = new ScrollSuave('[data-menu] a[href^="#"');
+
+scrollSuave.init();
+
 tabDtListActive();
 tabMenuActive();
-initialScrollSuave();
 animacaoAoScrollar();
 modalLogin();
 menuDropdown();
