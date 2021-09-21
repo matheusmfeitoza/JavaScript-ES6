@@ -1,4 +1,4 @@
-import tabMenuActive from "./modulos/menu.js";
+import TabNav from "./modulos/tabNav.js";
 import Accordion from "./modulos/lista-dt.js";
 import ScrollSuave from "./modulos/scroll-suave.js";
 import animacaoAoScrollar from "./modulos/animacao-scroll.js";
@@ -17,7 +17,9 @@ const accordion = new Accordion("[data-faq-list] dt");
 
 accordion.init();
 
-tabMenuActive();
+const tabNav = new TabNav("[data-tab-menu] li", "[data-tab-content] section");
+tabNav.init();
+
 animacaoAoScrollar();
 modalLogin();
 menuDropdown();
