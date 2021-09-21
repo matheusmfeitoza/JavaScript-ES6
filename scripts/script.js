@@ -1,5 +1,5 @@
 import tabMenuActive from "./modulos/menu.js";
-import tabDtListActive from "./modulos/lista-dt.js";
+import Accordion from "./modulos/lista-dt.js";
 import ScrollSuave from "./modulos/scroll-suave.js";
 import animacaoAoScrollar from "./modulos/animacao-scroll.js";
 import modalLogin from "./modulos/modal-login.js";
@@ -13,7 +13,10 @@ const scrollSuave = new ScrollSuave('[data-menu] a[href^="#"');
 
 scrollSuave.init();
 
-tabDtListActive();
+const accordion = new Accordion("[data-faq-list] dt");
+
+accordion.init();
+
 tabMenuActive();
 animacaoAoScrollar();
 modalLogin();

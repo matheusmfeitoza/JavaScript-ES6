@@ -1,16 +1,27 @@
-export default function tabDtListActive() {
-  const getDtFaqList = document.querySelectorAll("[data-faq-list] dt");
-  function tabDtEvent() {
-    this.classList.toggle("ativo");
-    this.nextElementSibling.classList.toggle("ativo");
+export default class Accordion {
+  constructor(dtList) {
+    this.dtList = document.querySelectorAll(dtList);
+    this.activeClass = "ativo";
   }
 
-  if (getDtFaqList.length) {
-    getDtFaqList[0].classList.add("ativo");
-    getDtFaqList[0].nextElementSibling.classList.add("ativo");
+  tabDtEvent(item) {
+    item.classList.toggle(this.activeClass);
+    item.nextElementSibling.classList.toggle(this.activeClass);
+  }
 
-    getDtFaqList.forEach((item) => {
-      item.addEventListener("click", tabDtEvent);
+  eventAccordion() {
+    this.dtList.forEach((item) => {
+      item.addEventListener("click", () => this.tabDtEvent(item));
     });
+  }
+
+  // Iniciar a função
+  init() {
+    if (this.dtList.length) {
+      // Inicia o primeiro elemento com a classe ativar
+      this.tabDtEvent(this.dtList[0]);
+      this.eventAccordion();
+    }
+    return this;
   }
 }
