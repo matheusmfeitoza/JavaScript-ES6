@@ -1,24 +1,40 @@
-export default function modalLogin() {
-  const getLogin = document.querySelector('[data-modal="login"]');
-  const getModal = document.querySelector('[data-modal="section-modal"]');
-  const closeModal = document.querySelector('[data-modal="btn-close"]');
-  function modalAction(event) {
-    event.preventDefault();
-    getModal.classList.add("ativo");
+export default class ModalLogin {
+  constructor(login, modal, closeModal) {
+    this.getLogin = document.querySelector(login);
+    this.getModal = document.querySelector(modal);
+    this.closeModal = document.querySelector(closeModal);
+    this.activeEvent = "ativo";
+    this.clickModalActive = this.clickModalActive.bind(this);
+    this.clickForaModal = this.clickForaModal.bind(this);
   }
 
-  function closeModalEvent(event) {
-    event.preventDefault();
-    getModal.classList.remove("ativo");
+  // Adiciona a classe ativo / remove classe ativo
+  modalAction() {
+    this.getModal.classList.toggle(this.activeEvent);
   }
-  function clickForaModal(event) {
-    if (event.target === this) {
-      closeModalEvent(event);
+
+  // Ativa o evendo de toggle
+  clickModalActive(event) {
+    event.preventDefault();
+    this.modalAction();
+  }
+
+  // Remove a classe ativo com click fora
+  clickForaModal(event) {
+    if (event.target === this.getModal) {
+      this.modalAction();
     }
   }
-  if (getModal && getLogin && closeModal) {
-    getLogin.addEventListener("click", modalAction);
-    closeModal.addEventListener("click", closeModalEvent);
-    getModal.addEventListener("click", clickForaModal);
+
+  // Chamada dos eventos
+  callEvents() {
+    this.getLogin.addEventListener("click", this.clickModalActive);
+    this.closeModal.addEventListener("click", this.clickModalActive);
+    this.getModal.addEventListener("click", this.clickForaModal);
+  }
+
+  init() {
+    this.callEvents();
+    return this;
   }
 }
