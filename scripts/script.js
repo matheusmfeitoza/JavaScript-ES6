@@ -31,5 +31,5 @@ animacaoAoScrollar();
 menuDropdown();
 menuMobile();
 horarioFuncionamento();
-fetchAnimais();
+fetchAnimais("./../assets/api/animais.json", ".grid-animais");
 fetchBtc();
