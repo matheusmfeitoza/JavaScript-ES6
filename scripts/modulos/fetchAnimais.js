@@ -1,4 +1,4 @@
-import animais from "./animais.js";
+import Animais from "./animais.js";
 
 export default function fetchAnimais() {
   function createAnimal(animal) {
@@ -15,7 +15,8 @@ export default function fetchAnimais() {
       const elementoAnimal = createAnimal(animal);
       getGridAnimal.appendChild(elementoAnimal);
     });
-    animais();
+    const animais = new Animais("[data-animais]", ".animais", "ativo");
+    animais.init();
   }
 
   getUrl("./../../assets/api/animais.json");
