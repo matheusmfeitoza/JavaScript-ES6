@@ -32,4 +32,4 @@ menuDropdown();
 menuMobile();
 horarioFuncionamento();
 fetchAnimais("./../assets/api/animais.json", ".grid-animais");
-fetchBtc();
+fetchBtc("https://blockchain.info/ticker", ".btc-price");

@@ -1,10 +1,14 @@
-export default function fetchBtc() {
+export default function fetchBtc(url, seletor) {
   async function getBtc() {
-    const getResponse = await fetch("https://blockchain.info/ticker");
-    const getDados = await getResponse.json();
-    const getBtcInHtml = document.querySelector(".btc-price");
+    try {
+      const getResponse = await fetch(url);
+      const getDados = await getResponse.json();
+      const getBtcInHtml = document.querySelector(seletor);
 
-    getBtcInHtml.innerText = (100 / getDados.BRL.sell).toFixed(4);
+      getBtcInHtml.innerText = (100 / getDados.BRL.sell).toFixed(4);
+    } catch (erro) {
+      console.log(erro);
+    }
   }
-  getBtc();
+  return getBtc();
 }
