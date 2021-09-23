@@ -1,7 +1,7 @@
 import TabNav from "./modulos/tabNav.js";
 import Accordion from "./modulos/lista-dt.js";
 import ScrollSuave from "./modulos/scroll-suave.js";
-import animacaoAoScrollar from "./modulos/animacao-scroll.js";
+import AnimacaoAoScrollar from "./modulos/animacao-scroll.js";
 import ModalLogin from "./modulos/modal-login.js";
 import menuDropdown from "./modulos/menu-dropdown.js";
 import menuMobile from "./modulos/menu-mobile.js";
@@ -27,7 +27,9 @@ const modalLogin = new ModalLogin(
 );
 modalLogin.init();
 
-animacaoAoScrollar();
+const animacaoAoScrollar = new AnimacaoAoScrollar("[data-scroll]");
+animacaoAoScrollar.init();
+
 menuDropdown();
 menuMobile();
 horarioFuncionamento();
