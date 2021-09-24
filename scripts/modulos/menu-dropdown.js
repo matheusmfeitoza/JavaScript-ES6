@@ -8,6 +8,7 @@ export default class MenuDropdown {
     this.handleClick = this.handleClick.bind(this);
   }
 
+  // Função de CallBack: Previne o padrão e adiciona a classe ativo
   handleClick(evento) {
     evento.preventDefault();
     const element = evento.currentTarget;
@@ -17,6 +18,7 @@ export default class MenuDropdown {
     });
   }
 
+  // Função de evento: Percorre primeiramente no item e depois para cada evento de click ou touch add um event listener com cada evento chamando o CallBack
   eventoClickMenu() {
     this.menu.forEach((item) => {
       this.events.forEach((menuClick) => {
@@ -25,6 +27,7 @@ export default class MenuDropdown {
     });
   }
 
+  // Função para iniciar a classe.
   init() {
     this.eventoClickMenu();
   }
