@@ -3,7 +3,7 @@ import Accordion from "./modulos/lista-dt.js";
 import ScrollSuave from "./modulos/scroll-suave.js";
 import AnimacaoAoScrollar from "./modulos/animacao-scroll.js";
 import ModalLogin from "./modulos/modal-login.js";
-import menuDropdown from "./modulos/menu-dropdown.js";
+import MenuDropdown from "./modulos/menu-dropdown.js";
 import menuMobile from "./modulos/menu-mobile.js";
 import horarioFuncionamento from "./modulos/horarioFuncionamento.js";
 import fetchAnimais from "./modulos/fetchAnimais.js";
@@ -30,7 +30,9 @@ modalLogin.init();
 const animacaoAoScrollar = new AnimacaoAoScrollar("[data-scroll]");
 animacaoAoScrollar.init();
 
-menuDropdown();
+const menuDropdown = new MenuDropdown("[data-show-menu]");
+menuDropdown.init();
+
 menuMobile();
 horarioFuncionamento();
 fetchAnimais("./../assets/api/animais.json", ".grid-animais");
