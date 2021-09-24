@@ -4,7 +4,7 @@ import ScrollSuave from "./modulos/scroll-suave.js";
 import AnimacaoAoScrollar from "./modulos/animacao-scroll.js";
 import ModalLogin from "./modulos/modal-login.js";
 import MenuDropdown from "./modulos/menu-dropdown.js";
-import menuMobile from "./modulos/menu-mobile.js";
+import MenuMobile from "./modulos/menu-mobile";
 import horarioFuncionamento from "./modulos/horarioFuncionamento.js";
 import fetchAnimais from "./modulos/fetchAnimais.js";
 import fetchBtc from "./modulos/fetchBtc.js";
@@ -33,7 +33,9 @@ animacaoAoScrollar.init();
 const menuDropdown = new MenuDropdown("[data-show-menu]");
 menuDropdown.init();
 
-menuMobile();
+const menuMobile = new MenuMobile("[data-menu='button'", "[data-menu='lista']");
+menuMobile.init();
+
 horarioFuncionamento();
 fetchAnimais("./../assets/api/animais.json", ".grid-animais");
 fetchBtc("https://blockchain.info/ticker", ".btc-price");

@@ -1,19 +1,40 @@
-import outSideClick from './outSideClick.js';
+import outSideClick from "./outSideClick.js";
 
-export default function menuMobile(){
-    const getMenuMobile = document.querySelector("[data-menu='lista']");
-    const getButtonMobile = document.querySelector("[data-menu='button'");
-    const eventos = ['click','touchstart'];
+export default class MenuMobile {
+  constructor(buttonMobile, menuMobile, eventos) {
+    this.getMenuMobile = document.querySelector(menuMobile);
+    this.getButtonMobile = document.querySelector(buttonMobile);
 
-    function activeMenu(){
-       getMenuMobile.classList.add('ativo')
-       getButtonMobile.classList.add('ativo')
+    if (eventos === undefined) this.eventos = ["click", "touchstart"];
+    else this.eventos = eventos;
 
-       outSideClick(getMenuMobile,eventos,() => {
-        getMenuMobile.classList.remove('ativo')
-        getButtonMobile.classList.remove('ativo')
-       })
+    this.classe = "ativo";
+    this.activeMenu = this.activeMenu.bind(this);
+  }
+
+  activeMenu() {
+    if (this.getButtonMobile.classList.contains(this.classe)) {
+      this.getMenuMobile.classList.remove(this.classe);
+      this.getButtonMobile.classList.remove(this.classe);
+    } else {
+      this.getMenuMobile.classList.add(this.classe);
+      this.getButtonMobile.classList.add(this.classe);
     }
-    eventos.forEach(evento => getButtonMobile.addEventListener(evento,activeMenu))
 
+    outSideClick(this.getMenuMobile, this.eventos, () => {
+      this.getMenuMobile.classList.remove(this.classe);
+      this.getButtonMobile.classList.remove(this.classe);
+    });
+  }
+
+  ativaEventos() {
+    this.eventos.forEach((evento) =>
+      this.getButtonMobile.addEventListener(evento, this.activeMenu)
+    );
+  }
+
+  init() {
+    this.ativaEventos();
+    return this;
+  }
 }
