@@ -1,37 +1,31 @@
 import outClick from "./outSideClick.js";
 
 export default class MenuDropdown {
-  constructor(menu) {
+  constructor(menu, events) {
     this.menu = document.querySelectorAll(menu);
+    if (events === undefined) this.events = ["click", "touchstart"];
+    else this.events = events;
+    this.handleClick = this.handleClick.bind(this);
   }
 
   handleClick(evento) {
-    console.log(evento);
     evento.preventDefault();
-    console.log(this);
+    const element = evento.currentTarget;
+    element.classList.add("ativo");
+    outClick(element, this.events, () => {
+      element.classList.remove("ativo");
+    });
   }
 
   eventoClickMenu() {
-    this.menu.forEach((item) =>
-      item.addEventListener(["click", "touchstart"], this.handleClick)
-    );
+    this.menu.forEach((item) => {
+      this.events.forEach((menuClick) => {
+        item.addEventListener(menuClick, this.handleClick);
+      });
+    });
   }
 
   init() {
     this.eventoClickMenu();
   }
 }
-// const getMenu = document.querySelectorAll("[data-show-menu]");
-// function handleClick(event) {
-//   event.preventDefault();
-//   this.classList.add("ativo");
-//   outClick(this, ["click", "touchstart"], () => {
-//     this.classList.remove("ativo");
-//   });
-// }
-
-// getMenu.forEach((item) => {
-//   ["click", "touchstart"].forEach((menuClick) => {
-//     item.addEventListener(menuClick, handleClick);
-//   });
-// });
