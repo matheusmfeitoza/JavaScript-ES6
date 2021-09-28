@@ -31,5 +31,6 @@ export default class HorarioFuncionamento {
 
   init() {
     this.horaFuncionamento();
+    return this;
   }
 }
